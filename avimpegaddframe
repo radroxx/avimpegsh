@@ -1,0 +1,13 @@
+#!/bin/sh
+
+SIZE=$(stat --printf="%s" $2)
+
+echo "30306463" | xxd -r -p >> $1
+
+# Length
+printf "%.8X" ${SIZE} | fold -w2 | tac | tr -d "\r\n" | xxd -r -p >> $1
+
+cat $2 >> $1
+
+echo "if(${SIZE}%2){print 0;print 0}" | bc | xxd -r -p >> $1
+echo "3030646300000000" | xxd -r -p >> $1

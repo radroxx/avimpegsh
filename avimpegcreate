@@ -1,0 +1,25 @@
+#!/bin/sh
+
+echo "UklGRghEAABBVkkgTElTVDgSAABoZHJsYXZpaDgAAAA=" | base64 -d > $1
+
+# Я не знаю что там но оно меняеться 
+echo "90D003" | xxd -r -p >> $1
+
+echo "H4sIAAAAAAAAA2NggAIBTgYGHiibESLCMAFI5jBgAh/P4JAHAgwMxSVFOUCcYQEUK8tMKfb1CnBHVgcyBwAWgKqzYQAAAA==" | base64 -d | gzip -dc >> $1
+
+# Frame rate
+# 02 = 1
+# echo "02" | xxd -r -p >> $1
+
+# 04 = 2
+echo "04" | xxd -r -p >> $1
+
+# 32 = 25
+#echo "32" | xxd -r -p >> $1
+
+echo "H4sIAAAAAAAAA2NgAAMeIJ7IycDwHwgYoGACQw5DcUlRmgaQrQHmMwBFGBgYGSQYfL0C3B22MWAAr1A/bwkBBgYWKN/AICUZU9UoGAWjYBSMglEwCkbBKBgFo2AUjIJRMAqGMygrKCpwQXIEAPJrrSN/EAAA" | base64 -d | gzip -dc >> $1
+
+# Frame rate снова
+echo "04" | xxd -r -p >> $1
+
+echo "H4sIAAAAAAAAA2NgYJjAwMCQA8TMDCxwNiOUnoBEowOvUD9vFqDC/JTcHCDK+IFFzUgBPp7BIVJA2tPPzd8z2C2EDySWWJZmaqFnZKBnaGAADq0fzAPtzlEwCkbBQABQCXFJh4EhN78sEwDzdffTdQUAAA==" | base64 -d | gzip -dc >> $1
